@@ -13,27 +13,27 @@ MongoClient.connect('mongodb://localhost:27017/ToDoApp', (err, db) => {
     console.log('Connecté à MongoDB Server');
     
 
-    // db.collection('Todos').insertOne({
-    //     text: `J'ai ajouté un nouveau texte!`,
-    //     completed: false
-    // }, (err, result) => {
-    //     if(err){
-    //         return console.log('Impossible d\'ajouter les données');
-    //     }
-
-    //     console.log(JSON.stringify(result.ops, undefined, 2));
-    // });
-
-    db.collection('Users').insertOne({
-        name: 'Jeremy',
-        age: 28,
-        location: 'Paris'
-    }, (erreur, resultat) => {
-        if(erreur){
-            return console.log('Ajout impossible - Erreure survenue');
+    db.collection('Todos').insertOne({
+        text: `Aller faire les courses`,
+        completed: false
+    }, (err, result) => {
+        if(err){
+            return console.log('Impossible d\'ajouter les données');
         }
-        console.log(resultat.ops)
+
+        console.log(JSON.stringify(result.ops, undefined, 2));
     });
+
+    // db.collection('Users').insertOne({
+    //     name: 'Jeremy',
+    //     age: 28,
+    //     location: 'Paris'
+    // }, (erreur, resultat) => {
+    //     if(erreur){
+    //         return console.log('Ajout impossible - Erreure survenue');
+    //     }
+    //     console.log(resultat.ops)
+    // });
 
     db.close();
 } );
